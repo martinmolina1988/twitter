@@ -6,11 +6,11 @@ import (
 	"github.com/martinmolina1988/twitter/bd"
 )
 
-/*ChequeoBD sirve para */
+/*ChequeoBD es el middlew que me permite conocer el estado de la BD */
 func ChequeoBD(next http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		if bd.ChequeoConexion() == 0 {
-			http.Error(w, "Conexion perdida con la base de datos", 500)
+		if bd.ChequeoConnection() == 0 {
+			http.Error(w, "Conexión perdida con la Base de Datos", 500)
 			return
 		}
 		next.ServeHTTP(w, r)

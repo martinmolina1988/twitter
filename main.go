@@ -1,14 +1,14 @@
 package main
 
 import (
-	"github.com/martinmolina1988/twitter/handlers"
 	"log"
 
 	"github.com/martinmolina1988/twitter/bd"
+	"github.com/martinmolina1988/twitter/handlers"
 )
 
 func main() {
-	if bd.ChequeoConexion() == 0 {
+	if bd.ChequeoConnection() == 0 {
 		log.Fatal("Sin conexion a la base de datos")
 		return
 	}
