@@ -19,4 +19,7 @@ type Usuario struct {
 	Biografia       string             `bson:"biografia" json:"biografia,omitempty"`
 	Ubicacion       string             `bson:"ubicacion" json:"ubicacion,omitempty"`
 	SitioWeb        string             `bson:"sitioweb" json:"sitioWeb,omitempty"`
+	Notif           int64              `bson:"notif" json:"notif,omitempty"`
+	Rango           string             `bson:"rango" json:"rango,omitempty"`
+	Mensaje         []Mensaje          `bson:"mensaje" json:"mensaje,omitempty"`
 }

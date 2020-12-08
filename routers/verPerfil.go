@@ -18,7 +18,7 @@ func VerPerfil(w http.ResponseWriter, r *http.Request) {
 
 	perfil, err := bd.BuscoPerfil(ID)
 	if err != nil {
-		http.Error(w, "Ocurrió un error al intentar buscar el registro "+err.Error(), 400)
+		http.Error(w, "Ocurrió un error al intentar buscar el registro "+err.Error(), 401)
 		return
 	}
 

@@ -9,7 +9,7 @@ import (
 )
 
 /*BorroTweet borra un tweet determinado */
-func BorroTweet(ID string, UserID string) error {
+func BorroTweet(ID string, UserID string, RTAID string, fecha string) error {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*15)
 	defer cancel()
 
