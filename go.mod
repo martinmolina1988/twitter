@@ -6,8 +6,8 @@ require (
 	github.com/aws/aws-sdk-go v1.34.22 // indirect
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/google/go-cmp v0.5.2 // indirect
-	github.com/googollee/go-socket.io v1.4.4
 	github.com/gorilla/mux v1.8.0
+	github.com/joho/godotenv v1.3.0
 	github.com/klauspost/compress v1.11.0 // indirect
 	github.com/kr/text v0.2.0 // indirect
 	github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e // indirect

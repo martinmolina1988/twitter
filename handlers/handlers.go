@@ -8,7 +8,6 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/martinmolina1988/twitter/middlew"
 	"github.com/martinmolina1988/twitter/routers"
-
 	"github.com/rs/cors"
 )
 
@@ -73,6 +72,7 @@ func Manejadores() {
 	if PORT == "" {
 		PORT = "8080"
 	}
+
 	handler := cors.AllowAll().Handler(router)
 	log.Fatal(http.ListenAndServe(":"+PORT, handler))
 }

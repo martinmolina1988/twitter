@@ -3,17 +3,32 @@ package bd
 import (
 	"context"
 	"log"
+	"os"
+
+	"github.com/joho/godotenv"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
+func load() *options.ClientOptions {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+
+	}
+
+	var ApplyURI = options.Client().ApplyURI(os.Getenv("MONGO_URI"))
+	return ApplyURI
+}
+
 /*MongoCN es el objeto de conexion a la BD*/
 var MongoCN = ConectarBD()
-var clientOption = options.Client().ApplyURI("mongodb+srv://martin:dodoria@cluster0-gdxja.mongodb.net/<dbname>?retryWrites=true&w=majority")
+var clientOption = load()
 
 /*ConectarBD es la funcion que me perimite conectar la base de datos*/
 func ConectarBD() *mongo.Client {
+	load()
 	client, err := mongo.Connect(context.TODO(), clientOption)
 	if err != nil {
 		log.Fatal(err)

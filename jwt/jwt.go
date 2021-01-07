@@ -3,14 +3,30 @@ package jwt
 import (
 	"time"
 
+	"log"
+	"os"
+
 	jwt "github.com/dgrijalva/jwt-go"
 	"github.com/martinmolina1988/twitter/models"
+
+	"github.com/joho/godotenv"
 )
+
+func load() string {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+
+	}
+
+	var MiClave string = (os.Getenv("MiClave"))
+	return MiClave
+}
 
 /*GeneroJWT genera el encriptado con JWT */
 func GeneroJWT(t models.Usuario) (string, error) {
 
-	miClave := []byte("MastersdelDesarrollo_grupodeFacebook")
+	miClave := []byte(load())
 
 	payload := jwt.MapClaims{
 		"email":            t.Email,
